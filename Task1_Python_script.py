@@ -1,9 +1,11 @@
 # Python script to scrape an article given the url of the article and store the extracted text in a file
 # Url: https://medium.com/@subashgandyer/papa-what-is-a-neural-network-c5e5cc427c7
 
+import sys
 import os
 import requests
 import re
+
 # Code here - Import BeautifulSoup library
 from bs4 import BeautifulSoup
 # Code ends here
@@ -54,6 +56,7 @@ def save_file(text):
 	name = url.split("/")[-1]
 	print(name)
 	fname = f'scraped_articles/{name}.txt'
+	clean(text)
 	
 	# Code here - write a file using with (2 lines)
 	with open(fname, "w") as file:
